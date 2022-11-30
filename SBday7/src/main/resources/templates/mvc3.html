@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title></title>
+</head>
+<body>
+<p><b>LATIHAN 1 MVC-3<b/></p>
+	<form action="mvc3">
+		<table>
+			<tr>
+				<td>Nama :</td>
+				<td><input type="text" name="nama"></td>
+			</tr>
+			<tr>
+				<td>Alamat :</td>
+				<td><input type="text" name="alamat"></td>
+			</tr>
+			<tr>
+				<td>Umur :</td>
+				<td><input type="number" name="umur"></td>
+			</tr>
+			<tr>
+			<td><input type="submit" value="Submit"></td>
+			</tr>
+		</table>
+	</form>
+	<table>
+	
+	<p><b>VIEW DATA<b/></p>
+		<tr>
+			<td>Nama :</td>
+			<td><input type="text" th:value="${hvnama}" disabled></td>
+		</tr>
+		<tr>
+			<td>Alamat :</td>
+			<td><input type="text" th:value="${hvalamat}" disabled></td>
+		</tr>
+		<tr>
+			<td>Umur :</td>
+			<td><input type="number" th:value="${hvumur}" disabled></td>
+		</tr>
+	</table>
+</body>
+</html>

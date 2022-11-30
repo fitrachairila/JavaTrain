@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="thymeleaf.og">
+<head>
+<meta charset="ISO-8859-1">
+<title>MVC-5</title>
+</head>
+<body>
+<h3><b>MVC-5</b></h3>
+<input type="radio" name="gen" th:checked="${hgender}=='pria'">Pria
+<input type="radio" name="gen" th:checked="${hgender}=='wanita'">Wanita
+<br>
+<table border="1">
+	<tr><td>Nama</td></tr>
+	<tr th:each="dt: ${hnama}">
+	<td th:text="${dt}"></td>
+	</tr>	
+</table>
+<select><option th:each="th:${hthlulus}" th:text="${th}"></select>
+<br>
+</body>
+</html>

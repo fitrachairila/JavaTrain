@@ -1,0 +1,21 @@
+<form action="#" th:action="@{/addsimpan}" th:object="${PegawaiModel}" method="post">
+<h2> Simpan Data Pegawai Baru</h2>
+	<table>
+		<tr>
+			<td>Nama   :</td>
+			<td> <input type="text" name="nama"> </td>
+		</tr>
+		<tr>
+			<td>Alamat :</td>
+			<td> <input type="text" name="alamat"> </td>
+		</tr>
+		<tr>
+			<td>"Umur   :</td>
+			<td> <input type="number" name="umur"> </td>
+		</tr>
+		<tr>
+			<td> <input type="submit" value="Simpan"> </td>
+			<td> </td>
+		</tr>
+	</table>
+</form>
