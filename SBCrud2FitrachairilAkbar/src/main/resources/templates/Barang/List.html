@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>CRUD-BARANG</title>
+<style type="text/css">
+table, td, th {
+	border: 1px solid
+}
+
+table {
+	border-collapse: collapse;
+}
+</style>
+</head>
+<body>
+		<b>DATA BARANG</b>
+	<br>
+	<table>
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>Nama Barang</td>
+				<td>Supplier Barang</td>
+				<td>Total Barang</td>
+			</tr>
+		</thead>
+		<tr th:each="dt : ${hData}">
+			<td th:text="${dt.id}"></td>
+			<td th:text="${dt.mNama}"></td>
+			<td th:text="${dt.mSupplier}"></td>
+			<td th:text="${dt.mQty}"></td>
+		</tr>
+	</table>
+	<br>
+	<table>
+		<tr>
+			<td>Total Barang :</td>
+			<td><input type="number" th:value="${hTBarang}" disabled>
+			</td>
+		</tr>
+		<tr>
+	</table>
+	<br>
+	<form th:action="@{/addbarang}">
+		<input type="submit" value="Tambah Barang">
+	</form>
+
+<p></p>
+	<b>EDIT PEGAWAI</b>
+	<form th:action="@{edtBarang}" th:object="${BarangModel}"
+		method="post">
+		<table>
+			<tr>
+			<tr>
+				<td>Id Barang : <input type="number" size="5" name="id_barang"></td>
+			</tr>
+			</tr>
+		</table>
+		<tr>
+			<td><input type="submit" value="Edit"></td>
+		</tr>
+	</form>
+	<br>
+<body>
+</body>
+
+<b>Delete Pegawai</b>
+<form th:action="@{DeleteBarang}" th:object="${BarangModel}"
+	method="post">
+	<table>
+		<tr>
+			<td>Id Barang : <input type="text" size="2" name="id"></td>
+		</tr>
+	</table>
+	<tr>
+		<td><input type="submit" value="Delete"></td>
+	</tr>
+</form>
+</body>
+
+</html>

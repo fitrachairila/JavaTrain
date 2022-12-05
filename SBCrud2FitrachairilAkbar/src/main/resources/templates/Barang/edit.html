@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Edit Barang</title>
+</head>
+<body>
+
+	<form action="#" th:action="@{/addSimpan}" th:object="${BarangModel}"
+		method="post">
+		<h2>
+			<b> Edit Data Barang Baru <b></b>
+		</h2>
+		<table>
+			<tr>
+				<td>Nama :</td>
+				<td><input type="text" name="mNama" disabled></td>
+			</tr>
+			<tr>
+				<td>Supplier :</td>
+				<td><input type="text" name="mSupplier"></td>
+			</tr>
+			<tr>
+				<td>Jumlah Barang :</td>
+				<td><input type="number" name="mQty"></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Simpan"></td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td><input type="submit" value="Batal"></td>
+				<td></td>
+			</tr>
+
+		</table>
+	</form>
+</body>
+</html>

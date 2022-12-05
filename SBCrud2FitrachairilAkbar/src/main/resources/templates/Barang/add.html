@@ -1,0 +1,21 @@
+<form action="#" th:action="@{/addSimpan}" th:object="${BarangModel}" method="post">
+<h2> Simpan Data Barang Baru</h2>
+	<table>
+		<tr>
+			<td>Nama   :</td>
+			<td> <input type="text" name="mNama"> </td>
+		</tr>
+		<tr>
+			<td>Supplier :</td>
+			<td> <input type="text" name="mSupplier"> </td>
+		</tr>
+		<tr>
+			<td>Jumlah Barang   :</td>  
+			<td> <input type="number" name="mQty"> </td>
+		</tr>
+		<tr>
+			<td> <input type="submit" value="Simpan"> </td>
+			<td> </td>
+		</tr>
+	</table>
+</form>

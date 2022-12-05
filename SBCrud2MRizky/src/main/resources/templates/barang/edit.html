@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="thymeleaf.og">
+<head>
+<meta charset="ISO-8859-1">
+<title>Edit Barang</title>
+</head>
+<body>
+	<p>Edit Barang</p>
+	<p>
+	<form action="#" th:action="@{/update}" method="post">
+		<table th:each="r:${leBarang}">
+			<tr>
+				<td>ID :</td>
+				<td><input type="text" name="id" th:value="${r.id}" readonly></td>
+			</tr>
+			<tr>
+				<td>Nama Barang :</td>
+				<td><input type="text" name="nama_barang" th:value="${r.nama_barang}"></td>
+			</tr>
+			<tr>
+				<td>Supplier :</td>
+				<td><input type="text" name="supplier" th:value="${r.supplier}"></td>
+			</tr>
+			<tr>
+				<td>QTY :</td>
+				<td><input type="text" name="qty" th:value="${r.qty}"></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Edit"></td>
+				<td></td>
+			</tr>
+		</table>
+	</form>
+	</p>
+	<p>
+	<form th:action="@{/listbarang}">
+		<input type="submit" value="Batal">
+	</form>
+	</p>
+</body>
+</html>
