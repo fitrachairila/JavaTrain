@@ -15,9 +15,11 @@ public class PegawaiModel {
 	@Column(name = "idPegawai")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	private String nama;
 	private String Alamat;
 	private int Umur;
+	private String Users;
 
 	public int getId() {
 		return id;
@@ -49,6 +51,14 @@ public class PegawaiModel {
 
 	public void setUmur(int umur) {
 		Umur = umur;
+	}
+
+	public String getUsers() {
+		return Users;
+	}
+
+	public void setUsers(String users) {
+		Users = users;
 	}
 	
 

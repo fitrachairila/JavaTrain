@@ -23,7 +23,9 @@ public class PegawaiController {
 	public String ListPegawai(Model model) {
 
 		List<PegawaiModel> data = ps.ListPegawai();
+		int totPegawai = ps.totalPegawai();
 		model.addAttribute("hData", data);
+		model.addAttribute("hTPegawai", totPegawai);
 		return "pegawai/List";
 	}
 
@@ -37,5 +39,24 @@ public class PegawaiController {
 		ps.addPegawai(pm);
 		return "redirect:/listpegawai";
 
+	}
+
+	@RequestMapping(value = "edtsimpan", method = RequestMethod.POST)
+	public String edtsimpan(PegawaiModel pm) {
+		if (pm.getUsers().equalsIgnoreCase("")) {
+		} else {
+			ps.editPegawai(pm);
+		}
+		return "redirect:/listpegawai";
+	}
+
+	// delete control
+	@RequestMapping(value = "delpegawai", method = RequestMethod.POST)
+	public String DelSimpan(PegawaiModel pm) {
+		if (pm.getUsers().equalsIgnoreCase("")) {
+		} else {
+			ps.delPegawai(pm);
+		}
+		return "redirect:/listpegawai";
 	}
 }

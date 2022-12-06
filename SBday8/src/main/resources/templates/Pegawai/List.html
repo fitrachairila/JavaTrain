@@ -2,35 +2,76 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Pegawai</title>
+<title>CRUD-EMPLOYEE</title>
 <style type="text/css">
-	table,td,th{
-		border: 1px solid
-	}
-	table {
-		border-collapse: collapse;
+table, td, th {
+	border: 1px solid
+}
+
+table {
+	border-collapse: collapse;
 	}
 </style>
 </head>
 <body>
-<p>Data Pegawai</p>
-
-<table>
-	<thead>
+	<p><b>Data Pegawai</b></p>
+	<table>
 		<tr>
-			<td>ID</td>
-			<td>NAMA</td>
-			<td>ALAMAT</td>
-			<td>UMUR</td>
+			<td>Total Pegawai :</td>
+			<td><input type="number" th:value="${hTPegawai}" >
+			</td>
 		</tr>
-	</thead>
-	<tr th:each="dt : ${hData}">
-		<td th:text="${dt.id}"></td>
-		<td th:text="${dt.nama}"></td>
-		<td th:text="${dt.Alamat}"></td>
-		<td th:text="${dt.Umur}"></td>
+		<tr> 
+	</table>
+	<br>
+	
+	<table>
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>NAMA</td>
+				<td>ALAMAT</td>
+				<td>UMUR</td>
+			</tr>
+		</thead>
+		<tr th:each="dt : ${hData}">
+			<td th:text="${dt.id}"></td>
+			<td th:text="${dt.nama}"></td>
+			<td th:text="${dt.Alamat}"></td>
+			<td th:text="${dt.Umur}"></td>
+		</tr>
+	</table>
+	<br>
+
+	<form th:action="@{/addpegawai}">
+		<input type="submit" value="Add Pegawai">
+	</form>
+	<br>
+
+<p></p>Edit pegawai:
+<form th:action="@{edtsimpan}" th:object="${PegawaiModel}" method="post">
+<table>
+	<tr>
+		<td>Id<input type="text" size="2" name="id"></td>
+		<td>Nama <input type="text" size="5" name="nama"></td>
+		<td>Alamat <input type="text" size="5" name="alamat"></td>
+		<td>Umur <input type="text" size="2" name="umur"></td>
+		<td>User<input type="text" size="2" name="users"></td>
+		<td><input type="submit" value="Edit"></td>
 	</tr>
 </table>
+</form>
 
+<br>
+<p></p>Delete Pegawai:
+<form th:action="@{delpegawai}" th:object="${PegawaiModel}" method="post">
+<table>
+	<tr>
+		<td>ID<input type="text" size="2" name="id"></td>
+		<td>User<input type="text" size="2" name="users"></td>
+		<td><input type="submit" value="Delete"></td>
+	</tr>
+</table>
+</form>
 </body>
 </html>
