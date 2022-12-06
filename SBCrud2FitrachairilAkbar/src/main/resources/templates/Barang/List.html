@@ -48,12 +48,11 @@ table {
 
 <p></p>
 	<b>EDIT PEGAWAI</b>
-	<form th:action="@{edtBarang}" th:object="${BarangModel}"
-		method="post">
+	<form th:action="@{/editbarang}" th:object="${BarangModel}" method="post">
 		<table>
 			<tr>
 			<tr>
-				<td>Id Barang : <input type="number" size="5" name="id_barang"></td>
+				<td>Id Barang : <input type="number" size="5" name="id"></td>
 			</tr>
 			</tr>
 		</table>

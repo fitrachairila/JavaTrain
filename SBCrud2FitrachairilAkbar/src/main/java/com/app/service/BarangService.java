@@ -22,8 +22,8 @@ public class BarangService {
 		return br.totalbarang();
 	}
 
-	public void addBarang(BarangModel mm) {
-		br.addBarang(mm.getmNama(), mm.getmSupplier(), mm.getmQty());
+	public void addBarang(BarangModel mm, String createdon) {
+		br.addBarang(mm.getmNama(), mm.getmSupplier(), mm.getmQty(),createdon);
 	}
 
 	public void edtBarang(BarangModel edt) {
@@ -31,7 +31,15 @@ public class BarangService {
 	}
 
 	// service del
-	public void delPegawai(BarangModel dm) {
+	public void delBarang(BarangModel dm) {
 		br.delBarang(dm.getId());
+	}
+	
+	public List<BarangModel> Rbarang2(int id){
+		return br.RBarang2(id);
+	}
+	
+	public void edtBarang(int id, String nm, String sup, int qty, String modifiedon) {
+		br.edtBarang(id, nm, sup, qty, modifiedon);
 	}
 }

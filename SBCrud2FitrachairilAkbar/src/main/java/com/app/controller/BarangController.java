@@ -1,5 +1,7 @@
 package com.app.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +17,10 @@ import com.app.service.BarangService;
 public class BarangController {
 	@Autowired
 	private BarangService bs;
-	
-	//View List Barang & Jumlah Barang
+	String dateNow = new SimpleDateFormat("yyyy/MM/dd").format(Calendar.getInstance().getTime());
+	String timeNow = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+
+	// View List Barang & Jumlah Barang
 	@RequestMapping("listbarang")
 	public String ListBarang(Model m) {
 		int total = bs.totalBarang();
@@ -25,33 +29,52 @@ public class BarangController {
 		m.addAttribute("hTBarang", total);
 		return "barang/list";
 	}
-	
+
 	@RequestMapping("addbarang")
 	public String AddBarang() {
 		return "Barang/add";
 	}
-	
-	//Simpan Barang Baru
+
+	// Simpan Barang Baru
 	@RequestMapping(value = "addSimpan", method = RequestMethod.POST)
 	public String AddSimpan(BarangModel sv) {
-		bs.addBarang(sv);
+		String createdon = dateNow + " " + timeNow;
+		bs.addBarang(sv, createdon);
 		return "redirect:/listbarang";
-}
-	//Edit Barang
-	@RequestMapping("EditBarang")
-	public String EditBarang() {
-		return "Barang/edit";
 	}
 	
-	@RequestMapping(value = "edtBarang", method = RequestMethod.POST)
-	public String edtBarang(BarangModel edt) {
-	bs.edtBarang(edt);
-	return "redirect:/listbarang";
-}
-	
-	@RequestMapping(value = "DeleteBarang", method =RequestMethod.POST)
+	// Delete Barang
+	@RequestMapping(value = "DeleteBarang", method = RequestMethod.POST)
 	public String Delsimpan(BarangModel dm) {
-		bs.delPegawai(dm);
+		bs.delBarang(dm);
 		return "redirect:/listbarang";
-}
+	}
+
+	// Edit Barang
+	//@RequestMapping("EditBarang")
+	//public String EditBarang() {
+		//return "Barang/edit";
+	//}
+
+	// Halaman Edit Barang
+	@RequestMapping(value = "editbarang", method = RequestMethod.POST)
+	public String edtBarang(BarangModel edt, Model m) {
+		List<BarangModel> lebarang = bs.Rbarang2(edt.getId());
+		String Page = " ";
+		if(lebarang.size()>0) {
+			m.addAttribute("lebarang", lebarang);
+			Page = "barang/edit";
+		}else {
+			Page = "redirect:/listbarang";
+		}
+		return Page;
+	}
+	/*-=Update Barang=-*/
+	@RequestMapping(value = "update", method = RequestMethod.POST)
+	public String edtBarang(BarangModel bm) {
+		String modifiedon = dateNow + " " + timeNow;
+		bs.edtBarang(bm.getId(), bm.getmNama(), bm.getmSupplier(), bm.getmQty(), modifiedon);
+		return "redirect:/listbarang";
+	}
+
 }
