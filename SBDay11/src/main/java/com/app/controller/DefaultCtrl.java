@@ -1,14 +1,20 @@
 package com.app.controller;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.validation.Valid;
 
+import org.hibernate.mapping.Array;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -93,15 +99,40 @@ public class DefaultCtrl {
 	@PostMapping(value = "getdata3")
 	public void getData3(@RequestBody Map<String, Object> data) {
 		System.out.println(data.get("nama"));
-		System.out.println(data.get("alamat"));
 		System.out.println(data.get("umur"));
+		System.out.println(data.get("gaji"));
+		
 	}
 
+	//Post API
 	@PostMapping(value = "getdata4")
-	public void getData4(@Valid @RequestBody PendudukModel pm) {
+	public ResponseEntity<Object> getData4(@Valid @RequestBody PendudukModel pm,
+			BindingResult br) {
+		
+		//Catch Error Message From API
+		//Single Field
+//		if(br.hasErrors() ) {
+//			String errmsg = br.getFieldError().getDefaultMessage();
+//			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errmsg);
+//		}
+		
+		//Catch Error Message From API
+		// List From All Error
+		if (br.hasErrors()) {
+			List<FieldError> error = br.getFieldErrors();
+			List<String> errmsg =  new ArrayList<>();
+			
+			for(FieldError fieldError : error) {
+				errmsg.add(fieldError.getDefaultMessage());	
+			}
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errmsg);
+		}
 		System.out.println(pm.getNama());
-		System.out.println(pm.getAlamat());
+		System.out.println(pm.getUmur());
 		System.out.println(pm.getGaji());
+		System.out.println(pm.getAlamat());
+		System.out.println(pm.getEmail());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Succes");
 	}
 
 	@PostMapping(value = "ceknilai")
@@ -109,7 +140,6 @@ public class DefaultCtrl {
 		int nilai = reqData.get("nilai");
 
 		Map<String, String> hasil = new LinkedHashMap<>();
-
 		if (nilai > 60) {
 			hasil.put("Hasil", "Anda Lulus");
 			return ResponseEntity.status(HttpStatus.ACCEPTED).body(hasil);
