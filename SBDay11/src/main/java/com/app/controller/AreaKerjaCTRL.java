@@ -17,12 +17,12 @@ public class AreaKerjaCTRL {
 	@Autowired
 	private AreaKerjaServ as;
 	
-	@GetMapping(value="listall")
-	public List<AreakerjaModel> listall (){
+	@GetMapping(value = "listall")
+	public List<AreakerjaModel>listall(){
 		return as.listall();
 	}
-
 }
+
 
 
 

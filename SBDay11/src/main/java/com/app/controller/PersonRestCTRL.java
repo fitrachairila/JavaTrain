@@ -14,11 +14,11 @@ import com.app.service.PersonServ;
 @RequestMapping("api/v1/person")
 public class PersonRestCTRL {
 		
-		@Autowired
-		private PersonServ ps;
-		
-		@GetMapping(value = "listall")
-		public List<PersonModel>listall(){
-			return ps.listall();
-		}
+	@Autowired
+	private PersonServ ps;
+	
+	@GetMapping(value = "listall")
+	public List<PersonModel>listall(){
+		return ps.listall();
 	}
+}

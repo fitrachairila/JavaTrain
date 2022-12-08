@@ -11,21 +11,19 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-
 @Entity
-@Table(name = "mPerson")
+@Table(name="person")
 public class PersonModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nama;
-//	private int idAreakerja;
 	
 	@OneToOne
-	@JsonIgnoreProperties("PersonModel")
-	@JoinColumn(name = "id_areakerja")//foreign key
-	private AreakerjaModel areakerjamodel; //entity rujukan
+	@JsonIgnoreProperties("person")
+	@JoinColumn(name = "id_areakerja") // foreign key
+	private AreakerjaModel areakerja; // entity rujukan
 
 	public int getId() {
 		return id;
@@ -44,11 +42,11 @@ public class PersonModel {
 	}
 
 	public AreakerjaModel getAreakerja() {
-		return areakerjamodel;
+		return areakerja;
 	}
 
 	public void setAreakerja(AreakerjaModel areakerja) {
-		this.areakerjamodel = areakerja;
+		this.areakerja = areakerja;
 	}
-	
+
 }

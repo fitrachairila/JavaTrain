@@ -14,11 +14,10 @@ import com.app.repo.AreaKerjaRepo;
 @Transactional
 public class AreaKerjaServ {
 
-		@Autowired
-		private AreaKerjaRepo ar;
-		
-		public List<AreakerjaModel>listall(){
-			return ar.findAll();
-		}
-
+	@Autowired
+	private AreaKerjaRepo ar;
+	
+	public List<AreakerjaModel>listall(){
+		return ar.findAll();
 	}
+}

@@ -11,16 +11,17 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "mAreaKerja")
+@Table(name = "areakerja")
 public class AreakerjaModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	private String lantai;
 	
-	@OneToOne(mappedBy = "areakerjamodel")
-	@JsonIgnoreProperties("areakerjamodel")
-	private PersonModel personmodel;
+	@OneToOne(mappedBy = "areakerja")
+	@JsonIgnoreProperties("areakerja")
+	private PersonModel person;
 
 	public int getId() {
 		return id;
@@ -39,10 +40,11 @@ public class AreakerjaModel {
 	}
 
 	public PersonModel getPerson() {
-		return personmodel;
+		return person;
 	}
 
 	public void setPerson(PersonModel person) {
-		this.personmodel = person;
+		this.person = person;
 	}
+
 }
