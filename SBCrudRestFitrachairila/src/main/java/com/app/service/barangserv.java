@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.model.barangmodel;
 import com.app.repo.barangrepo;
 
 @Service
@@ -31,7 +32,15 @@ public class barangserv {
 		br.barangedit(idsup, nmb, qt);
 	}
 	
-	public void barangdel(int id) {
+	public void barangdelete(int id) {
 		br.barangdelete(id);
+	}
+	
+	public List<barangmodel> CheckIdBarang(int id) {
+		return br.CheckIdBarang(id);
+	}
+	
+	public List<barangmodel> CheckIdSupplier(int id) {
+		return br.CheckIdSupplier(id);
 	}
 }

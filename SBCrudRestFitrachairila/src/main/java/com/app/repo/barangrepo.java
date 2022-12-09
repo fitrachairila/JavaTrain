@@ -16,7 +16,7 @@ public interface barangrepo extends JpaRepository<barangmodel, Integer> {
 	List<Map<String, Object>> baranglist();
 	
 	@Modifying
-	@Query(value = "insert into Tbarang (id_supplier,nama_barang,qty) values(?1,?2,?3)",nativeQuery = true)
+	@Query(value = "insert into tbarang (id_supplier,nama_barang,qty) values(?1,?2,?3)",nativeQuery = true)
 	void barangadd(int idsup, String nmb, int qt);
 	
 	@Modifying
@@ -26,4 +26,10 @@ public interface barangrepo extends JpaRepository<barangmodel, Integer> {
 	@Modifying
 	@Query(value ="delete from tbarang where id=:id", nativeQuery = true)
 	void barangdelete(int id);
+	
+	@Query(value="select * from tbarang where id=:id", nativeQuery = true)
+	List<barangmodel>CheckIdBarang(int id);
+	
+	@Query(value="select * from tsupplier where id=:id", nativeQuery = true)
+	List<barangmodel>CheckIdSupplier(int id);
 }
