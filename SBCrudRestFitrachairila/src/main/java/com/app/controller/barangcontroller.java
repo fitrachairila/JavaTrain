@@ -59,8 +59,9 @@ public class barangcontroller {
 	public ResponseEntity<Object> barangdelete(@RequestBody Map<String, Object> dt) {
 		try {
 			int id = Integer.parseInt(dt.get("id").toString());
+			
 			bs.barangdel(id);
-			return ResponseEntity.status(HttpStatus.ACCEPTED).body("Delete Barang Berhasil");
+			return ResponseEntity.status(HttpStatus.OK).body("Delete Barang Berhasil");
 
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Delete Barang Gagal, ID Barang Tidak Ada");

@@ -19,9 +19,11 @@ public interface barangrepo extends JpaRepository<barangmodel, Integer> {
 	@Query(value = "insert into Tbarang (id_supplier,nama_barang,qty) values(?1,?2,?3)",nativeQuery = true)
 	void barangadd(int idsup, String nmb, int qt);
 	
+	@Modifying
 	@Query(value = "update tbarang set id_supplier=:idsup,nama_barang=:nmb,qty=:qty where id=:idb",nativeQuery = true)
 	void barangedit(int idsup, String nmb, int qty);
 	
+	@Modifying
 	@Query(value ="delete from tbarang where id=:id", nativeQuery = true)
 	void barangdelete(int id);
 }
