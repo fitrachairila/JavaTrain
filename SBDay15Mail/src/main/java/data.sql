@@ -1,0 +1,1 @@
+insert into memail(isi)values('isi dari DB');
