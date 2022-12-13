@@ -5,6 +5,7 @@ public class DTOMail {
 	private String to;
 	private String subject;
 	private String body;
+	private String atch;
 	
 	public String getTo() {
 		return to;
@@ -23,6 +24,12 @@ public class DTOMail {
 	}
 	public void setBody(String body) {
 		this.body = body;
+	}
+	public String getAtch() {
+		return atch;
+	}
+	public void setAtch(String atch) {
+		this.atch = atch;
 	}
 	
 }
