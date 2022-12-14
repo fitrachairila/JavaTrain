@@ -117,21 +117,21 @@ public class MailConfig {
 			
 			//Ambil konten isi email 
 			//Untuk Konten bertipe multipart
-			System.out.println("Tipe Konten : " + msg[i].getContentType());
-			String msgContent="";
-			String ctype = msg[i].getContentType();
-			if(ctype.contains("multipart")) {
-				System.out.println(1);
-			}else if(ctype.contains("text/plain"))
-			
-			Multipart mtp = (Multipart) msg[i].getContent();
-			int numMtp = mtp.getCount();
-			for (int j=0; j < numMtp; j++) {
-				MimeBodyPart part = (MimeBodyPart) mtp.getBodyPart(j);
-				msgContent = part.getContentID().toString();
-			}
-			
-			System.out.println("Isi Email : " + msgContent);
+//			System.out.println("Tipe Konten : " + msg[i].getContentType());
+//			String msgContent="";
+//			String ctype = msg[i].getContentType();
+//			if(ctype.contains("multipart")) {
+//				System.out.println(1);
+//			}else if(ctype.contains("text/plain"));
+//		
+//			Multipart mtp = (Multipart) msg[i].getContent();
+//			int numMtp = mtp.getCount();
+//			for (int j=0; j < numMtp; j++) {
+//				MimeBodyPart part = (MimeBodyPart) mtp.getBodyPart(j);
+//				msgContent = part.getContentID().toString();
+//			}
+//			
+//			System.out.println("Isi Email : " + msgContent);
 		}
 		
 		inbox.close();
@@ -141,10 +141,10 @@ public class MailConfig {
 			e.printStackTrace();
 		} catch (MessagingException e) {
 			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 		}
-		
 		
 	}
 }

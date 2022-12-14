@@ -1,0 +1,18 @@
+<pcml version="6.0">
+   <!-- RPG program: FEPSIMAMOR  -->
+   <!-- created: 2022-06-16-11.36.00 -->
+   <!-- source: PGM2004/FESRCNEW(FEPSIMAMOR) -->
+   <!-- 180 -->
+   <struct name="SDAMOR">
+      <data name="IUSERID" type="char" length="10" usage="inherit" />
+      <data name="ICURLIB" type="char" length="10" usage="inherit" />
+      <data name="IPRGLIB" type="char" length="10" usage="inherit" />
+      <data name="IBRNCOD" type="char" length="2" usage="inherit" />
+      <data name="ILOCCOD" type="char" length="2" usage="inherit" />
+      <data name="IRETMSG" type="char" length="42" usage="inherit" />
+      <data name="IRETCODE" type="char" length="3" usage="inherit" />
+   </struct>
+   <program name="FEPSIMAMOR" path="/QSYS.LIB/PRG2004NEW.LIB/FEPSIMAMOR.PGM">
+      <data name="SDAMOR" type="struct" struct="SDAMOR" usage="inputoutput" />
+   </program>
+</pcml>
