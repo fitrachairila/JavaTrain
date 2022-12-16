@@ -1,0 +1,8 @@
+<pcml version="6.0">
+   <!-- RPG program: CMP0201AZ  -->
+   <!-- created: 2022-03-18-15.12.07 -->
+   <!-- source: PGM2004/CMSRCNEW(CMP0201.AZ) -->
+   <program name="CMP0201AZ" path="/QSYS.LIB/PRG2004NEW.LIB/CMP0201AZ.PGM">
+      <data name="DSRDNAZ" type="char" length="271" usage="inputoutput" />
+   </program>
+</pcml>
