@@ -12,6 +12,8 @@ public class SbDay19Application {
 	public static void main(String[] args) {
 		SpringApplication.run(SbDay19Application.class, args);
 		new File(NewDir).mkdir();
+		
+		
 	}
 
 }

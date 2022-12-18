@@ -19,6 +19,7 @@ public class usermodel {
 	private String role;
 	private boolean enabled;
 	private String email;
+	
 	public int getId() {
 		return id;
 	}
@@ -49,5 +50,12 @@ public class usermodel {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
-	
+	public String getEmail() {
+		return email;
 	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	
+}
