@@ -1,0 +1,21 @@
+CIF Integration
+1. Mapping CIF
+2. Pembuatan aplikasi untuk query CIF
+3. Integrasi multiple CIF data source ke AS400
+4. Validasi-Evaluasi-Implementasi
+5. 5 Source DB: DATACIF, BUKISYS, CLS, WOKEE, CC
+6. MASTERCIF FEEDING:
+-> Batch based --> run program to feeding MASTERCIF data, jika ada data baru, program di-run ulang sampai waktunya data mapping dengan CBS baru. 
+-> near realtime --> program with update & delete feature;
+7. Timeline:
+Mapping: 13/12
+Design
+Query Dev: 17/12
+Test: 17/12-24/12
+8. Cleansing CIF Meeting: (Senin/Selasa - 6/7 Dec 2021)
+- DPNS
+- DKPN
+- DERM
+- DDWM
+- DKKR
+- DPTI (Mas Lukman, Mas Aan, Kang Ari, Akbar, Rizki)
